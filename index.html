@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анастасія — вебпрограмування</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">Anastasia<span>.dev</span></a>
+      <nav class="nav">
+        <a href="#about">Про мене</a>
+        <a href="#skills">Навички</a>
+        <a href="#projects">Проєкти</a>
+        <a href="#contact">Контакти</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero__tag">Лабораторна робота №5 · Варіант 5</p>
+        <h1>Привіт! Я <span class="accent">Анастасія</span></h1>
+        <p class="hero__text">Вивчаю вебпрограмування: HTML, CSS, JavaScript і React.
+          Цей сайт розгорнуто на Vercel прямо з репозиторію GitHub.</p>
+        <a href="#projects" class="btn">Мої проєкти</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>Про мене</h2>
+        <p>Студентка, яка цікавиться фронтенд-розробкою. Люблю, коли код перетворюється
+          на щось, що можна відкрити в браузері й показати іншим.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="section section--alt">
+      <div class="container">
+        <h2>Навички</h2>
+        <ul class="skills">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Git / GitHub</li>
+          <li>Vercel</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Проєкти</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Статичний сайт</h3>
+            <p>Ця сторінка: чистий HTML, CSS і трохи JavaScript без збірки.</p>
+          </article>
+          <article class="card">
+            <h3>React-застосунок</h3>
+            <p>Проєкт lab_2_react на Vite: відгуки, форма зв'язку, перемикач теми.</p>
+          </article>
+          <article class="card">
+            <h3>Автодеплой</h3>
+            <p>Кожен git push у гілку main автоматично оновлює сайт на Vercel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--alt">
+      <div class="container">
+        <h2>Контакти</h2>
+        <p>GitHub: <a href="https://github.com/anastasiadan223">anastasiadan223</a></p>
+        <button id="greetBtn" class="btn">Натисни мене</button>
+        <p id="greetText" class="greet"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Анастасія · Лабораторна робота №5</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

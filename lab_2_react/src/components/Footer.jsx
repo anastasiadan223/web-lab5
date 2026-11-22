@@ -1,10 +1,10 @@
-export default function Footer() {
+function Footer() {
   return (
-    <footer className="footer">
-      <div className="container">
-        <p>© {new Date().getFullYear()} Кав’ярня «Зерно» · м. Київ, вул. Хрещатик, 1</p>
-        <p>Лабораторна робота №5 · React + Vite · Vercel</p>
-      </div>
+    <footer>
+      <p>&copy; {new Date().getFullYear()} Данилович Анастасія. Усі права захищено.</p>
+      <p>Розгорнуто на Vercel · <a href="https://github.com/anastasiadan223/web-lab5" target="_blank" rel="noopener">GitHub</a></p>
     </footer>
   );
 }
+
+export default Footer;

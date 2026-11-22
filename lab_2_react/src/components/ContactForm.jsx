@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function ContactForm() {
+function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
@@ -26,27 +26,29 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="section">
-      <h2>Зв’язатися з нами</h2>
-      {sent && <p className="success">Дякуємо! Ваше повідомлення надіслано.</p>}
-      <form className="contact-form" onSubmit={handleSubmit} noValidate>
+    <div className="contact-form">
+      <h3>Форма зворотного зв'язку</h3>
+      {sent && <p className="success">Дякую! Ваше повідомлення надіслано.</p>}
+      <form onSubmit={handleSubmit} noValidate>
         <label>
-          Ім’я
-          <input name="name" value={form.name} onChange={handleChange} />
+          Ваше ім'я:
+          <input name="name" placeholder="Іван Іванов" value={form.name} onChange={handleChange} />
           {errors.name && <span className="error">{errors.name}</span>}
         </label>
         <label>
-          Email
-          <input name="email" type="email" value={form.email} onChange={handleChange} />
+          Email:
+          <input name="email" type="email" placeholder="you@example.com" value={form.email} onChange={handleChange} />
           {errors.email && <span className="error">{errors.email}</span>}
         </label>
         <label>
-          Повідомлення
+          Повідомлення:
           <textarea name="message" rows="4" value={form.message} onChange={handleChange} />
           {errors.message && <span className="error">{errors.message}</span>}
         </label>
         <button type="submit">Надіслати</button>
       </form>
-    </section>
+    </div>
   );
 }
+
+export default ContactForm;

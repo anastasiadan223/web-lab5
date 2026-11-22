@@ -1,48 +1,42 @@
 import { useState } from 'react';
 
 const initialReviews = [
-  { id: 1, author: 'Олена', text: 'Найсмачніший капучино в місті!', rating: 5 },
-  { id: 2, author: 'Максим', text: 'Зручно працювати з ноутбуком, швидкий Wi-Fi.', rating: 4 },
-  { id: 3, author: 'Ірина', text: 'Привітний персонал і затишна атмосфера.', rating: 5 },
+  { id: 1, author: 'Олег, власник кав’ярні', text: 'Анастасія зробила нам лендинг за тиждень. Все акуратно і вчасно.' },
+  { id: 2, author: 'Команда «Code for Lviv»', text: 'Відповідальна учасниця, уважна до деталей під час тестування.' },
+  { id: 3, author: 'Марта, фотографиня', text: 'Сайт-портфоліо виглядає чудово і на телефоні, і на ноутбуці.' },
 ];
 
-export default function Reviews() {
+function Reviews() {
   const [reviews, setReviews] = useState(initialReviews);
   const [author, setAuthor] = useState('');
   const [text, setText] = useState('');
-  const [rating, setRating] = useState(5);
 
   const addReview = (e) => {
     e.preventDefault();
     if (!author.trim() || !text.trim()) return;
-    setReviews([{ id: Date.now(), author: author.trim(), text: text.trim(), rating }, ...reviews]);
+    setReviews([{ id: Date.now(), author: author.trim(), text: text.trim() }, ...reviews]);
     setAuthor('');
     setText('');
-    setRating(5);
   };
 
   return (
-    <section className="section">
+    <section id="reviews">
       <h2>Відгуки</h2>
+      <div className="reviews">
+        {reviews.map((r) => (
+          <blockquote className="review" key={r.id}>
+            <p>«{r.text}»</p>
+            <cite>— {r.author}</cite>
+          </blockquote>
+        ))}
+      </div>
       <form className="review-form" onSubmit={addReview}>
         <input placeholder="Ваше ім’я" value={author} onChange={(e) => setAuthor(e.target.value)} />
         <input placeholder="Ваш відгук" value={text} onChange={(e) => setText(e.target.value)} />
-        <select value={rating} onChange={(e) => setRating(Number(e.target.value))}>
-          {[5, 4, 3, 2, 1].map((r) => (
-            <option key={r} value={r}>{'★'.repeat(r)}</option>
-          ))}
-        </select>
-        <button type="submit">Додати</button>
+        <button type="submit">Додати відгук</button>
       </form>
-      <div className="reviews">
-        {reviews.map((r) => (
-          <div className="review" key={r.id}>
-            <div className="review__stars">{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</div>
-            <p>«{r.text}»</p>
-            <span className="review__author">— {r.author}</span>
-          </div>
-        ))}
-      </div>
     </section>
   );
 }
+
+export default Reviews;

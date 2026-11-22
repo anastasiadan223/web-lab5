@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
-import ThemeToggle from './components/ThemeToggle.jsx';
+import Header from './components/Header.jsx';
+import About from './components/About.jsx';
+import Skills from './components/Skills.jsx';
+import Experience from './components/Experience.jsx';
+import Education from './components/Education.jsx';
+import Projects from './components/Projects.jsx';
 import Reviews from './components/Reviews.jsx';
-import ContactForm from './components/ContactForm.jsx';
+import Contacts from './components/Contacts.jsx';
 import Footer from './components/Footer.jsx';
+import ThemeToggle from './components/ThemeToggle.jsx';
+import './App.css';
 
-const menu = [
-  { name: 'Еспресо', price: 45, desc: 'Класика з насиченим смаком' },
-  { name: 'Капучино', price: 60, desc: 'Еспресо, молоко та ніжна пінка' },
-  { name: 'Флет вайт', price: 70, desc: 'Подвійний еспресо з молоком' },
-  { name: 'Какао', price: 55, desc: 'Для тих, хто не п’є каву' },
-];
-
-export default function App() {
+function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
@@ -21,42 +21,20 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="header">
-        <div className="container header__inner">
-          <h1 className="logo">☕ Зерно</h1>
-          <ThemeToggle
-            theme={theme}
-            onToggle={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-          />
-        </div>
-      </header>
-
-      <main className="container">
-        <section className="hero">
-          <h2>Кав’ярня «Зерно»</h2>
-          <p>Затишне місце для кави, навчання та зустрічей з друзями.</p>
-        </section>
-
-        <section className="section">
-          <h2>Меню</h2>
-          <div className="menu">
-            {menu.map((item) => (
-              <div className="menu__item" key={item.name}>
-                <div>
-                  <h3>{item.name}</h3>
-                  <p>{item.desc}</p>
-                </div>
-                <span className="price">{item.price} ₴</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
+      <ThemeToggle theme={theme} onToggle={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
+      <Header />
+      <main>
+        <About />
+        <Skills />
+        <Experience />
+        <Education />
+        <Projects />
         <Reviews />
-        <ContactForm />
+        <Contacts />
       </main>
-
       <Footer />
     </div>
   );
 }
+
+export default App;
